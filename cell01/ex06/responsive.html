@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Responsive</title>
+    <style>
+        /* ล้างขอบขาวๆ รอบนอก */
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        table {
+            width: 100%;      /* กว้างเต็มจอ (ซ้าย-ขวา) */
+            height: 100vh;    /* สูงเต็มจอ (บน-ล่าง) <-- ตัวนี้แหละครับที่ทำให้เต็มจอจริง */
+            border-collapse: collapse;
+        }
+        
+        td {
+            width: 50%;       /* แบ่งครึ่งเท่ากัน */
+            text-align: center;
+            vertical-align: middle; /* จัดตัวหนังสือให้อยู่กึ่งกลางแนวตั้งด้วย จะได้สวยๆ */
+        }
+
+        .cell-1 {
+            background-color: #83c5be; /* สีเขียว */
+        }
+        .cell-2 {
+            background-color: #ffddd2; /* สีส้ม */
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td class="cell-1">First cell</td>
+            <td class="cell-2">Second cell</td>
+        </tr>
+    </table>
+</body>
+</html>

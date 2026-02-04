@@ -1,0 +1,26 @@
+/* จัดการหน้าจอ */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    transition: background-color 0.5s; /* ใส่ลูกเล่นให้สีค่อยๆ เปลี่ยนสมูทๆ */
+}
+
+/* จัดปุ่ม */
+.container {
+    padding: 20px;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+button:active {
+    transform: translateY(2px); /* เอฟเฟกต์กดปุ่มยุบลง */
+}

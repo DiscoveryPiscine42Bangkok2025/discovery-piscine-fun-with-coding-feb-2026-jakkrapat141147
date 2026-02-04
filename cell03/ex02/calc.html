@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>It's over 9000</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #333;
+            font-family: Arial, sans-serif;
+        }
+        .calculator {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            display: flex;
+            gap: 10px;
+        }
+        input, select {
+            padding: 10px;
+            font-size: 18px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator">
+        <input type="text" id="leftMember" placeholder="Left number">
+        
+        <select id="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value="%">%</option>
+        </select>
+
+        <input type="text" id="rightMember" placeholder="Right number">
+
+        <input type="submit" value="Try me!" onclick="calc()">
+    </div>
+
+    <script>
+        // ตั้งเวลาทุก 30 วินาที (30000 ms) ให้เด้งเตือน
+        setInterval(function(){
+            alert("Please, use me...");
+        }, 30000);
+
+        function calc() {
+            // ดึงค่าจาก HTML
+            var leftStr = document.getElementById('leftMember').value;
+            var rightStr = document.getElementById('rightMember').value;
+            var op = document.getElementById('operator').value;
+
+            // ฟังก์ชันเช็คว่าเป็นจำนวนเต็มบวกหรือไม่ (Regex: มีแต่ตัวเลขล้วนๆ)
+            function isValid(str) {
+                return /^\d+$/.test(str); 
+            }
+
+            // 1. เช็คว่ากรอกมาถูกต้องไหม (ต้องเป็นเลขจำนวนเต็มบวกเท่านั้น)
+            if (!isValid(leftStr) || !isValid(rightStr)) {
+                alert("Error :(");
+                console.log("Error :(");
+                return; // จบการทำงานทันที
+            }
+
+            // แปลงเป็นตัวเลขจริงๆ
+            var left = parseInt(leftStr);
+            var right = parseInt(rightStr);
+            var result = 0;
+
+            // 2. คำนวณตามเครื่องหมาย
+            if (op === '+') {
+                result = left + right;
+            } else if (op === '-') {
+                result = left - right;
+            } else if (op === '*') {
+                result = left * right;
+            } else if (op === '/') {
+                // ดักการหารด้วย 0
+                if (right === 0) {
+                    alert("It's over 9000!");
+                    console.log("It's over 9000!");
+                    return;
+                }
+                result = left / right;
+            } else if (op === '%') {
+                // ดักการหารเอาเศษด้วย 0
+                if (right === 0) {
+                    alert("It's over 9000!");
+                    console.log("It's over 9000!");
+                    return;
+                }
+                result = left % right;
+            }
+
+            // 3. แสดงผลลัพธ์
+            console.log(result); // แสดงใน Console (F12)
+            alert(result);       // แสดง Alert
+        }
+    </script>
+
+</body>
+</html>

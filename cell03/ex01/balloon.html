@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Balloon</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0; /* สีพื้นหลังหน้าเว็บ (ใส่ให้ดูสะอาดตา) */
+        }
+
+        #balloon {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border-radius: 50%; /* ทำให้เป็นวงกลม */
+            cursor: pointer;
+            transition: width 0.1s, height 0.1s, background-color 0.1s; /* ใส่ Animation นิดนึงให้นุ่มนวล */
+        }
+    </style>
+</head>
+<body>
+
+    <div id="balloon" onclick="pumpBalloon()" onmouseleave="deflateBalloon()"></div>
+
+    <script>
+        // กำหนดตัวแปรเริ่มต้น
+        var size = 200;
+        var colors = ['red', 'green', 'blue'];
+        var colorIndex = 0; // 0=Red, 1=Green, 2=Blue
+
+        var balloon = document.getElementById('balloon');
+
+        // ฟังก์ชันเมื่อ "คลิก" (เป่าลม)
+        function pumpBalloon() {
+            size += 10; // เพิ่มขนาด 10px
+
+            // เปลี่ยนสีไปข้างหน้า (Forward)
+            colorIndex++;
+            if (colorIndex >= 3) {
+                colorIndex = 0;
+            }
+
+            // ถ้าระเบิด (เกิน 420px)
+            if (size > 420) {
+                size = 200;       // กลับมาขนาดเดิม
+                colorIndex = 0;   // กลับมาสีแดง
+            }
+
+            updateBalloon();
+        }
+
+        // ฟังก์ชันเมื่อ "เมาส์ออก" (ลมรั่ว)
+        function deflateBalloon() {
+            // ลดขนาดลง 5px แต่ห้ามต่ำกว่า 200
+            size -= 5;
+            if (size < 200) {
+                size = 200;
+            }
+
+            // เปลี่ยนสีย้อนกลับ (Reverse)
+            colorIndex--;
+            if (colorIndex < 0) {
+                colorIndex = 2; // ย้อนจากแดงไปน้ำเงิน
+            }
+
+            updateBalloon();
+        }
+
+        // ฟังก์ชันอัปเดตหน้าจอ
+        function updateBalloon() {
+            balloon.style.width = size + 'px';
+            balloon.style.height = size + 'px';
+            balloon.style.backgroundColor = colors[colorIndex];
+        }
+    </script>
+
+</body>
+</html>

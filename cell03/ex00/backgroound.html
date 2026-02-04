@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Change Background</title>
+    <link rel="stylesheet" href="backgroound.css">
+</head>
+<body>
+
+    <div class="container">
+        <button id="btn" onclick="changeColor()">Click me!</button>
+    </div>
+
+    <script>
+        function changeColor() {
+            // สุ่มตัวเลขสี RGB (0-255)
+            var r = Math.floor(Math.random() * 256);
+            var g = Math.floor(Math.random() * 256);
+            var b = Math.floor(Math.random() * 256);
+            
+            // สร้างโค้ดสี เช่น "rgb(100, 200, 50)"
+            var color = "rgb(" + r + "," + g + "," + b + ")";
+            
+            // สั่งเปลี่ยนสีพื้นหลังของ body
+            document.body.style.backgroundColor = color;
+        }
+    </script>
+
+</body>
+</html>

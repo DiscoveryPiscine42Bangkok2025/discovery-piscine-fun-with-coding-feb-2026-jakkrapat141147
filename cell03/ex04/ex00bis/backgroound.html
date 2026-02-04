@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Change Background (jQuery)</title>
+    <link rel="stylesheet" href="backgroound.css">
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <button id="btn">Click me!</button>
+    </div>
+
+    <script>
+        // รอให้หน้าเว็บโหลดเสร็จก่อน (Standard ของ jQuery)
+        $(document).ready(function() {
+            
+            // เมื่อคลิกที่ปุ่ม id="btn"
+            $('#btn').click(function() {
+                // สุ่มสี
+                var r = Math.floor(Math.random() * 256);
+                var g = Math.floor(Math.random() * 256);
+                var b = Math.floor(Math.random() * 256);
+                var color = "rgb(" + r + "," + g + "," + b + ")";
+                
+                // สั่งเปลี่ยนสี Body (เขียนสั้นกว่าเดิมเยอะ!)
+                $('body').css('background-color', color);
+            });
+
+        });
+    </script>
+
+</body>
+</html>

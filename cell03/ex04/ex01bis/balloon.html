@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Balloon jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #balloon {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border-radius: 50%;
+            cursor: pointer;
+            /* Animation ให้สมูท */
+            transition: width 0.1s, height 0.1s, background-color 0.1s;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="balloon"></div>
+
+    <script>
+        $(document).ready(function() {
+            var size = 200;
+            var colors = ['red', 'green', 'blue'];
+            var colorIndex = 0;
+
+            // ฟังก์ชันอัปเดต CSS
+            function updateBalloon() {
+                $('#balloon').css({
+                    'width': size + 'px',
+                    'height': size + 'px',
+                    'background-color': colors[colorIndex]
+                });
+            }
+
+            // เมื่อคลิก (Click) -> ใหญ่ขึ้น + เปลี่ยนสีไปหน้า
+            $('#balloon').click(function() {
+                size += 10;
+                colorIndex++;
+                if (colorIndex >= 3) colorIndex = 0;
+
+                // ถ้าระเบิด (เกิน 420px)
+                if (size > 420) {
+                    size = 200;
+                    colorIndex = 0;
+                }
+                updateBalloon();
+            });
+
+            // เมื่อเมาส์ออก (Mouse Leave) -> เล็กลง + เปลี่ยนสีย้อนกลับ
+            $('#balloon').mouseleave(function() {
+                size -= 5;
+                if (size < 200) size = 200;
+
+                colorIndex--;
+                if (colorIndex < 0) colorIndex = 2;
+
+                updateBalloon();
+            });
+        });
+    </script>
+
+</body>
+</html>

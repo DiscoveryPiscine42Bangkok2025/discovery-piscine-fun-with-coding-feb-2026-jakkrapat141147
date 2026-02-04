@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>It's over 9000 (jQuery)</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #333;
+            font-family: Arial, sans-serif;
+        }
+        .calculator {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            display: flex;
+            gap: 10px;
+        }
+        input, select {
+            padding: 10px;
+            font-size: 18px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator">
+        <input type="text" id="leftMember" placeholder="Left number">
+        
+        <select id="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value="%">%</option>
+        </select>
+
+        <input type="text" id="rightMember" placeholder="Right number">
+
+        <input type="submit" id="btn" value="Try me!">
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            
+            // Alert ทุก 30 วินาที
+            setInterval(function(){
+                alert("Please, use me...");
+            }, 30000);
+
+            // เมื่อคลิกปุ่ม Calculate
+            $('#btn').click(function() {
+                // ดึงค่าด้วย jQuery .val()
+                var leftStr = $('#leftMember').val();
+                var rightStr = $('#rightMember').val();
+                var op = $('#operator').val();
+
+                // Regex เช็คจำนวนเต็มบวก
+                var isPositiveInt = /^\d+$/;
+
+                if (!isPositiveInt.test(leftStr) || !isPositiveInt.test(rightStr)) {
+                    alert("Error :(");
+                    console.log("Error :(");
+                    return;
+                }
+
+                var left = parseInt(leftStr);
+                var right = parseInt(rightStr);
+                var result = 0;
+
+                // เช็คหารศูนย์ (Over 9000)
+                if ((op === '/' || op === '%') && right === 0) {
+                    alert("It's over 9000!");
+                    console.log("It's over 9000!");
+                    return;
+                }
+
+                // คำนวณ
+                if (op === '+') result = left + right;
+                else if (op === '-') result = left - right;
+                else if (op === '*') result = left * right;
+                else if (op === '/') result = left / right;
+                else if (op === '%') result = left % result;
+
+                console.log(result);
+                alert(result);
+            });
+        });
+    </script>
+
+</body>
+</html>
