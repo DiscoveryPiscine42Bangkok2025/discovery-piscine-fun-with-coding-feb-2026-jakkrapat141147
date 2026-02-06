@@ -1,30 +1,117 @@
 body { font-family: 'Prompt', 'Inter', sans-serif; }
 html { scroll-behavior: smooth; }
 
-/* Home Section */
-.hero-section {
+/* ================= LANDING PAGE ================= */
+.landing-container {
     height: 100vh;
-    background: linear-gradient(rgba(10, 25, 47, 0.75), rgba(10, 25, 47, 0.75)), 
+    background: linear-gradient(rgba(10, 25, 47, 0.9), rgba(10, 25, 47, 0.9)), 
                 url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070');
-    background-size: cover; background-position: center; background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
 }
 
+/* Card เลือกคน */
+.selection-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 30px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    text-align: center;
+}
+
+.selection-card:hover {
+    transform: translateY(-15px) scale(1.05);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 40px rgba(13, 71, 161, 0.4);
+    border-color: #0d47a1;
+}
+
+.selection-card img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid white;
+    margin-bottom: 20px;
+    transition: 0.4s;
+}
+
+.selection-card:hover img {
+    border-color: #00d2ff;
+    box-shadow: 0 0 20px #00d2ff;
+}
+
+.card-info h3 {
+    color: white;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.card-info p {
+    color: #00d2ff;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Animation */
+.animate-up {
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ================= MAIN CONTENT ================= */
 /* Navbar */
 .navbar { background-color: #0d47a1 !important; padding: 15px 0; }
 
+/* Hero Section (ภายในโปรไฟล์) */
+.hero-section {
+    min-height: 100vh; /* ให้เต็มจอเหมือนเดิม */
+    padding-top: 80px; /* เผื่อที่ให้ Navbar */
+    background: linear-gradient(rgba(10, 25, 47, 0.8), rgba(10, 25, 47, 0.8)), 
+                url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.profile-img-lg {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 6px solid #0d47a1;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+
 /* Sections */
-section { padding: 100px 0; }
+section { padding: 80px 0; }
 .section-title::after { content: ""; display: block; width: 60px; height: 4px; background: #0d47a1; margin: 15px auto; }
 
-/* Profile Card */
-.profile-card { border-radius: 20px; transition: 0.3s; background: white; }
-.profile-card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-.profile-img { width: 140px; height: 140px; object-fit: cover; border-radius: 50%; border: 4px solid #0d47a1; padding: 5px; }
-.edu-box { border-left: 5px solid #0d47a1; font-size: 0.9rem; }
+/* Skill Tags */
+.skill-tag { 
+    background: #e3f2fd; color: #0d47a1; 
+    padding: 10px 25px; border-radius: 50px; 
+    font-weight: 600; border: 1px solid #0d47a1; 
+    font-size: 1rem; transition: 0.3s;
+}
+.skill-tag:hover {
+    background: #0d47a1; color: white;
+}
 
-/* Tags & Links */
-.skill-tag { background: #e3f2fd; color: #0d47a1; padding: 8px 18px; border-radius: 50px; font-weight: 600; border: 1px solid #0d47a1; font-size: 0.85rem; }
-.project-card { transition: 0.3s; overflow: hidden; border-radius: 15px; }
-.project-card:hover { transform: scale(1.02); }
-.contact-link { text-decoration: none; color: #ddd; transition: 0.3s; font-size: 0.9rem; }
-.contact-link:hover { color: #00d2ff; padding-left: 5px; }
+/* Project Card */
+.project-card { transition: 0.3s; border-radius: 15px; overflow: hidden;}
+.project-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.15) !important; }
+
+/* Contact Link */
+.contact-link { 
+    text-decoration: none; color: #ddd; 
+    transition: 0.3s; font-size: 1.1rem; 
+}
+.contact-link:hover { color: #00d2ff; }
