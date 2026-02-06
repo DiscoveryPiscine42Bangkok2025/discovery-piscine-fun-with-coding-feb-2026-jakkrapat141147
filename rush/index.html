@@ -40,19 +40,37 @@
         </div>
     </div>
 
-    <nav id="main-navbar" class="navbar navbar-expand-lg navbar-dark fixed-top shadow d-none">
+    <nav id="navbar-kanya" class="navbar navbar-expand-lg navbar-dark fixed-top shadow d-none">
         <div class="container">
             <a class="navbar-brand fw-bold" href="#" onclick="goBackHome()">RUSH PROJECT</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navKanya">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse" id="navKanya">
                 <ul class="navbar-nav ms-auto fw-semibold text-uppercase">
                     <li class="nav-item"><a class="nav-link" href="#" onclick="goBackHome()"><i class="fas fa-home me-1"></i> Switch Profile</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
                     <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <nav id="navbar-jakkapat" class="navbar navbar-expand-lg navbar-dark fixed-top shadow d-none">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#" onclick="goBackHome()">RUSH PROJECT</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navJakkapat">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navJakkapat">
+                <ul class="navbar-nav ms-auto fw-semibold text-uppercase">
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="goBackHome()"><i class="fas fa-home me-1"></i> Switch Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about-jk">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills-jk">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects-jk">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact-jk">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -147,11 +165,11 @@
                 <img src="https://scontent.fbkk10-1.fna.fbcdn.net/v/t39.30808-6/629323938_2268036153685344_6375197420297918378_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEMFf8EoSTNTaeX9GECz9iYVz7wO0F363tXPvA7QXfre56tHn_8u_bdBPPHtyFzE9HwsRLSGVSnX2oKmnjTWxTK&_nc_ohc=iyit3IM4Qi0Q7kNvwHgs1Ay&_nc_oc=AdmNIACJjujOM_QSQGO59lWP8d4s1DBp_nVj37MQFXSbm_xPXsR4VbX9oLOqFVNhy5c&_nc_zt=23&_nc_ht=scontent.fbkk10-1.fna&_nc_gid=D2ZmC_H6N4uBJ_fcaRZZbQ&oh=00_AfvYg8WzVbd54mwtDr_zebeNqjUNW7IGLcQbatOV4MFcag&oe=698B7305" class="profile-img-lg mb-4 animate-up" alt="Jakkapat">
                 <h1 class="display-3 fw-bold mb-2">Jakkapat Khunthom</h1>
                 <p class="lead text-info fw-bold">IOT Engineer</p>
-                <a href="#about" class="btn btn-outline-light btn-lg px-5 rounded-pill mt-3">See My Portfolio</a>
+                <a href="#about-jk" class="btn btn-outline-light btn-lg px-5 rounded-pill mt-3">See My Portfolio</a>
             </div>
         </header>
 
-        <section id="about" class="py-5">
+        <section id="about-jk" class="py-5">
             <div class="container">
                 <h2 class="text-center mb-5 section-title">About Me</h2>
                 <div class="row justify-content-center">
@@ -169,7 +187,7 @@
             </div>
         </section>
 
-        <section id="skills" class="py-5 bg-dark text-white text-center">
+        <section id="skills-jk" class="py-5 bg-dark text-white text-center">
             <div class="container">
                 <h2 class="mb-5 section-title text-white">Technical Skills</h2>
                 <div class="d-flex flex-wrap justify-content-center gap-3">
@@ -182,7 +200,7 @@
             </div>
         </section>
 
-        <section id="projects" class="py-5 bg-light">
+        <section id="projects-jk" class="py-5 bg-light">
             <div class="container">
                 <h2 class="text-center mb-5 section-title">My Project</h2>
                 <div class="row justify-content-center">
@@ -202,7 +220,7 @@
             </div>
         </section>
 
-        <section id="contact" class="py-5 bg-dark text-white">
+        <section id="contact-jk" class="py-5 bg-dark text-white">
             <div class="container">
                 <h2 class="mb-5 section-title text-white text-center">Contact Me</h2>
                 <div class="row justify-content-center">
@@ -228,15 +246,18 @@
             // 1. ซ่อน Landing Page
             document.getElementById('landing-page').classList.add('d-none');
             
-            // 2. แสดง Navbar
-            document.getElementById('main-navbar').classList.remove('d-none');
+            // 2. ซ่อน Navbar ทั้งสองอันก่อน (Reset)
+            document.getElementById('navbar-kanya').classList.add('d-none');
+            document.getElementById('navbar-jakkapat').classList.add('d-none');
 
-            // 3. แสดงเนื้อหาตามคนที่เลือก
+            // 3. แสดงเนื้อหาและ Navbar ตามคนที่เลือก
             if (person === 'kanya') {
                 document.getElementById('kanya-content').classList.remove('d-none');
+                document.getElementById('navbar-kanya').classList.remove('d-none'); // โชว์ Nav ของ Kanya
                 document.getElementById('jakkapat-content').classList.add('d-none');
             } else {
                 document.getElementById('jakkapat-content').classList.remove('d-none');
+                document.getElementById('navbar-jakkapat').classList.remove('d-none'); // โชว์ Nav ของ Jakkapat
                 document.getElementById('kanya-content').classList.add('d-none');
             }
 
@@ -245,9 +266,10 @@
         }
 
         function goBackHome() {
-            // สลับกลับมาหน้าแรก
+            // สลับกลับมาหน้าแรก ซ่อนทุกอย่าง
             document.getElementById('landing-page').classList.remove('d-none');
-            document.getElementById('main-navbar').classList.add('d-none');
+            document.getElementById('navbar-kanya').classList.add('d-none');
+            document.getElementById('navbar-jakkapat').classList.add('d-none');
             document.getElementById('kanya-content').classList.add('d-none');
             document.getElementById('jakkapat-content').classList.add('d-none');
         }
