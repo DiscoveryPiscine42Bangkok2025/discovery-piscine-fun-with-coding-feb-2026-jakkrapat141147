@@ -1,0 +1,30 @@
+body { font-family: 'Prompt', 'Inter', sans-serif; }
+html { scroll-behavior: smooth; }
+
+/* Home Section */
+.hero-section {
+    height: 100vh;
+    background: linear-gradient(rgba(10, 25, 47, 0.75), rgba(10, 25, 47, 0.75)), 
+                url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070');
+    background-size: cover; background-position: center; background-attachment: fixed;
+}
+
+/* Navbar */
+.navbar { background-color: #0d47a1 !important; padding: 15px 0; }
+
+/* Sections */
+section { padding: 100px 0; }
+.section-title::after { content: ""; display: block; width: 60px; height: 4px; background: #0d47a1; margin: 15px auto; }
+
+/* Profile Card */
+.profile-card { border-radius: 20px; transition: 0.3s; background: white; }
+.profile-card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+.profile-img { width: 140px; height: 140px; object-fit: cover; border-radius: 50%; border: 4px solid #0d47a1; padding: 5px; }
+.edu-box { border-left: 5px solid #0d47a1; font-size: 0.9rem; }
+
+/* Tags & Links */
+.skill-tag { background: #e3f2fd; color: #0d47a1; padding: 8px 18px; border-radius: 50px; font-weight: 600; border: 1px solid #0d47a1; font-size: 0.85rem; }
+.project-card { transition: 0.3s; overflow: hidden; border-radius: 15px; }
+.project-card:hover { transform: scale(1.02); }
+.contact-link { text-decoration: none; color: #ddd; transition: 0.3s; font-size: 0.9rem; }
+.contact-link:hover { color: #00d2ff; padding-left: 5px; }
